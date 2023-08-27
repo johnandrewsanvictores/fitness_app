@@ -6,18 +6,18 @@ import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import About from './pages/About';
 
 function App() {
   return (
     <div className="App">
-      <Box  width="400px" sx={{width : { xl: '1488px'}}} m="auto">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/exercise/:id" element={<ExerciseDetail />}/>
+          {/* <Route path="/" element={<Home />}/>
+          <Route path="/exercise/:id" element={<ExerciseDetail />}/> */}
+          <Route path="/about" element={<About />}/>
         </Routes>
         <Footer />
-      </Box>
     </div>
   );
 }

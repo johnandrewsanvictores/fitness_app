@@ -20,6 +20,44 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         window.scrollTo({top: 1800, behavior: "smooth"})
     }
 
+
+    //temp data
+    const ex = [
+        {
+            id: 3,
+            gifUrl: '/logo192.png',
+            name: 'test',
+            bodyPart: 'chest',
+            target: 'chest'
+        },
+        {
+            id: 4,
+            gifUrl: '/logo192.png',
+            name: 'test',
+            bodyPart: 'chest',
+            target: 'chest'
+        }, {
+            id: 5,
+            gifUrl: '/logo192.png',
+            name: 'test',
+            bodyPart: 'chest',
+            target: 'chest'
+        }, {
+            id: 6,
+            gifUrl: '/logo192.png',
+            name: 'test',
+            bodyPart: 'chest',
+            target: 'chest'
+        }, {
+            id: 7,
+            gifUrl: '/logo192.png',
+            name: 'test',
+            bodyPart: 'chest',
+            target: 'chest'
+        },
+    ]
+
+
     useEffect(() => {
         const fetchExercisesData = async () => {
             let exercisesData = [];
@@ -34,8 +72,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
             setExercises(exercisesData);
         }
-
-        fetchExercisesData(); 
+        setExercises(ex);
+        //fetchExercisesData(); 
     }, [bodyPart])
 
     return ( 
