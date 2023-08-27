@@ -4,6 +4,7 @@ import { Box, Stack, Typography } from '@mui/material';
 
 import { exerciseOptions, fetchData} from '../utils/fetchData';
 import ExerciseCard from "./ExerciseCard";
+import Loader from "./Loader";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -50,7 +51,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
             <Stack direction="row" sx={{gap: {lg: '100px', xs: '50px'}}} flexWrap="wrap" justifyContent="center">
                 {(exercises.length > 0) ? currentExercises.map((exercise, index) => (
                     <ExerciseCard key={index} exercise={exercise} />
-                )) : <Typography>Loading...</Typography>}
+                )) : <Loader />}
             </Stack>
 
             <Stack mt="100px" alignItems="center">
