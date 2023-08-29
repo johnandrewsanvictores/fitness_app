@@ -1,18 +1,15 @@
 import { Box, Stack, Typography } from "@mui/material";
-import Logo from '../assets/images/Logo-1.png';
-
+import Logo from "../assets/images/Logo-1.png";
 
 const Footer = () => {
-    return ( 
-        <Box mt="80px" bgcolor="#fff3f4">
-            <Stack gap="40px" alignItems="center" px="40px" pt="24px">
-                <img src={Logo} alt="logo" width="200px" height="40px" />
-                <Typography variant="h5" pb="40px" mt="20px">
-                    Made by John Andrew San Victores
-                </Typography>
-            </Stack>
-        </Box>
-     );
-}
- 
+  return (
+    <div className="flex justify-between items-center py-5 px-20 bg-yellow-500 text-white">
+      <p className="flex gap-2 items-center justify-center text-xl">
+        Gym <i className="fab fa-typo3" />
+      </p>
+      <small className="text-base">Gym © {new Date().getFullYear()}</small>
+    </div>
+  );
+};
+
 export default Footer;

@@ -1,112 +1,217 @@
 import { useState, useEffect } from "react";
-import { Pagination  } from "@mui/material";
-import { Box, Stack, Typography } from '@mui/material';
+import { Pagination } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
-import { exerciseOptions, fetchData} from '../utils/fetchData';
+import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
 import Loader from "./Loader";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const exercisesPerPage = 9;
+  const [currentPage, setCurrentPage] = useState(1);
+  const exercisesPerPage = 9;
 
-    const indexOfLastExercise = currentPage * exercisesPerPage;
-    const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-    const currentExercises = exercises.slice(indexOfFirstExercise,indexOfLastExercise)
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(
+    indexOfFirstExercise,
+    indexOfLastExercise,
+  );
 
-    const paginate = (e, value) => {
-        setCurrentPage(value);
+  const paginate = (e, value) => {
+    setCurrentPage(value);
 
-        window.scrollTo({top: 1800, behavior: "smooth"})
-    }
+    window.scrollTo({ top: 1800, behavior: "smooth" });
+  };
 
+  //temp data
+  const ex = [
+    {
+      id: 3,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 4,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 5,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 6,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 7,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 5,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 6,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 7,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 5,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 6,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 7,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 5,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 6,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+    {
+      id: 7,
+      gifUrl: "/logo192.png",
+      name: "test",
+      bodyPart: "chest",
+      target: "chest",
+    },
+  ];
 
-    //temp data
-    const ex = [
-        {
-            id: 3,
-            gifUrl: '/logo192.png',
-            name: 'test',
-            bodyPart: 'chest',
-            target: 'chest'
-        },
-        {
-            id: 4,
-            gifUrl: '/logo192.png',
-            name: 'test',
-            bodyPart: 'chest',
-            target: 'chest'
-        }, {
-            id: 5,
-            gifUrl: '/logo192.png',
-            name: 'test',
-            bodyPart: 'chest',
-            target: 'chest'
-        }, {
-            id: 6,
-            gifUrl: '/logo192.png',
-            name: 'test',
-            bodyPart: 'chest',
-            target: 'chest'
-        }, {
-            id: 7,
-            gifUrl: '/logo192.png',
-            name: 'test',
-            bodyPart: 'chest',
-            target: 'chest'
-        },
-    ]
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      let exercisesData = [];
 
+      if (bodyPart === "all") {
+        setExercises([]);
+        exercisesData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseOptions,
+        );
+      } else {
+        setExercises([]);
+        exercisesData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          exerciseOptions,
+        );
+      }
 
-    useEffect(() => {
-        const fetchExercisesData = async () => {
-            let exercisesData = [];
+      setExercises(exercisesData);
+    };
+    setExercises(ex);
+    //fetchExercisesData();
+  }, [bodyPart]);
 
-            if(bodyPart === "all") {
-                setExercises([]);
-                exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-            } else {
-                setExercises([]);
-                exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions); 
-            }
+  return (
+    <div id="exercises" className=" lg:py-28 pt-12 px-5 flex flex-col md:py-25">
+      <h3 className=" mb-12 text-3xl text-gray-800 text-center">
+        Showing Results
+      </h3>
+      <div className="flex flex-row lg:gap-24 gap-[50px] flex-wrap justify-center">
+        {exercises.length > 0 ? (
+          currentExercises.map((exercise, index) => (
+            <ExerciseCard key={index} exercise={exercise} />
+          ))
+        ) : (
+          <Loader />
+        )}
+      </div>
+      <div className="mt-[20px] items-center self-center">
+        {exercises.length > 9 && (
+          <Pagination
+            color="standard"
+            shape="rounded"
+            defaultPage={1}
+            count={Math.ceil(exercises.length / exercisesPerPage)}
+            page={currentPage}
+            onChange={paginate}
+            size="large"
+          />
+        )}
+      </div>
+    </div>
+    // <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
+    //   <Typography variant="h3" mb="46px">
+    //     Showing Results
+    //   </Typography>
 
-            setExercises(exercisesData);
-        }
-        setExercises(ex);
-        //fetchExercisesData(); 
-    }, [bodyPart])
+    //   <Stack
+    //     direction="row"
+    //     sx={{ gap: { lg: "100px", xs: "50px" } }}
+    //     flexWrap="wrap"
+    //     justifyContent="center"
+    //   >
+    //     {exercises.length > 0 ? (
+    //       currentExercises.map((exercise, index) => (
+    //         <ExerciseCard key={index} exercise={exercise} />
+    //       ))
+    //     ) : (
+    //       <Loader />
+    //     )}
+    //   </Stack>
 
-    return ( 
-        <Box id="exercises"
-            sx={{mt: { lg: '110px'}}}
-            mt="50px"
-            p="20px"
-        >
-            <Typography variant="h3" mb="46px">
-                Showing Results
-            </Typography>
+    //   <Stack mt="100px" alignItems="center">
+    //     {exercises.length > 9 && (
+    //       <Pagination
+    //         color="standard"
+    //         shape="rounded"
+    //         defaultPage={1}
+    //         count={Math.ceil(exercises.length / exercisesPerPage)}
+    //         page={currentPage}
+    //         onChange={paginate}
+    //         size="large"
+    //       />
+    //     )}
+    //   </Stack>
+    // </Box>
+  );
+};
 
-            <Stack direction="row" sx={{gap: {lg: '100px', xs: '50px'}}} flexWrap="wrap" justifyContent="center">
-                {(exercises.length > 0) ? currentExercises.map((exercise, index) => (
-                    <ExerciseCard key={index} exercise={exercise} />
-                )) : <Loader />}
-            </Stack>
-
-            <Stack mt="100px" alignItems="center">
-                {exercises.length > 9 && (
-                    <Pagination 
-                        color="standard" 
-                        shape="rounded" 
-                        defaultPage={1}
-                        count={Math.ceil(exercises.length / exercisesPerPage)}
-                        page={currentPage}
-                        onChange={paginate}
-                        size="large"    
-                    />
-                )}
-            </Stack>
-        </Box>
-     );
-}
- 
 export default Exercises;
