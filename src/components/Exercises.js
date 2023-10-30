@@ -145,8 +145,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       setExercises(exercisesData);
     };
-    setExercises(ex);
-    //fetchExercisesData();
+    //setExercises(ex);
+    fetchExercisesData();
   }, [bodyPart]);
 
   return (
@@ -154,10 +154,10 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <h3 className=" mb-12 text-3xl text-gray-800 text-center">
         Showing Results
       </h3>
-      <div className="flex flex-row lg:gap-24 gap-[50px] flex-wrap justify-center">
+      <div className="flex flex-row lg:gap-24 gap-[25px] flex-wrap justify-center w-full max-w-[70em] m-auto">
         {exercises.length > 0 ? (
           currentExercises.map((exercise, index) => (
-            <ExerciseCard key={index} exercise={exercise} />
+            <ExerciseCard key={index} exercise={exercise} isSimilar={false} />
           ))
         ) : (
           <Loader />

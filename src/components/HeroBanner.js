@@ -1,108 +1,63 @@
-//import { Box, Stack, Typography, Button } from "@mui/material";
-import HeroBannerImg from "../assets/images/banner_img.png";
+import Row from "../assets/images/row.jpg";
+import Twist from "../assets/images/twist.jpg";
+import Deadlift from "../assets/images/deadlift.jpeg";
+
 const HeroBanner = () => {
   const handleClickScroll = () => {
     const element = document.querySelector("#exercises");
     if (element) {
-      // 👇 Will scroll smoothly to the top of the next section
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="flex flex-col gap-8 px-4 py-8 md:grid md:grid-cols-2 items-center md:px-12 md:py-24 bg-gray-200">
-      <div className="flex flex-col gap-4 items-center">
-        <div>
-          <p className=" text-5xl text-red-500 leading-tight text-center">
-            Fitness Club
-          </p>
-          <p className=" text-xl text-gray-800 alig text-center">
-            Sweat, Smile and Repeat
-          </p>
-        </div>
-
-        <div>
-          <img
-            src={HeroBannerImg}
-            alt="hero-banner"
-            className="rounded-3xl h-auto mx-auto w-full max-w-3xl md:hidden"
-          />
-        </div>
-        <div className="flex flex-col gap-2 mx-auto items-center">
-          <p className="text-gray-800 text-base text-center">
-            Check out the most effective exercises
+    <div className="flex items-center text-gray-600 bg-[#e4dbdb] px-8 py-16 md:py-24">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between md:gap-10">
+        <div className="md:w-1/2 text-center md:text-left mb-4 md:mb-0 flex flex-col gap-5">
+          <h1 className="text-5xl font-extrabold leading-tight text-red-500">
+            Discover, Learn, and Stay Fit
+          </h1>
+          <p className="text-lg w-full max-w-[48ch]">
+            Discover a vast library of exercises, master proper form, and
+            achieve your fitness goals with ease.
           </p>
           <div>
             <button
-              className=" bg-yellow-500 px-6 py-3 rounded-md text-white"
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full text-lg transition-transform transform hover:scale-105 ease-in-out"
               onClick={handleClickScroll}
             >
-              Explore exercises
+              Get Started
             </button>
           </div>
         </div>
-      </div>
-      <div>
-        <img
-          src={HeroBannerImg}
-          alt="hero-banner"
-          className="rounded-3xl h-auto mx-auto w-full max-w-3xl hidden md:block"
-        />
+        <div className="md:w-1/2 mt-6 md:mt-0 flex flex-col items-center gap-5 w-full">
+          <div className="image-container rounded-lg w-full h-40 relative">
+            <div className="overlay absolute inset-0 rounded-lg bg-red-500 opacity-20"></div>
+            <img
+              src={Row}
+              alt="Image 1"
+              className="object-cover w-full h-full rounded-lg"
+            />
+          </div>
+          <div className="image-container rounded-lg w-full h-40 relative">
+            <div className="overlay absolute inset-0 rounded-lg bg-red-500 opacity-20"></div>
+            <img
+              src={Deadlift}
+              alt="Image 2"
+              className="object-cover w-full h-full rounded-lg"
+            />
+          </div>
+          <div className="image-container rounded-lg w-full h-40 relative">
+            <div className="overlay absolute inset-0 rounded-lg bg-red-500 opacity-20"></div>
+            <img
+              src={Twist}
+              alt="Image 3"
+              className="object-cover w-full h-full rounded-lg"
+            />
+          </div>
+        </div>
       </div>
     </div>
-
-    // <Box
-    //     sx={{
-    //         mt: {lg:'212px', xs: '70px'},
-    //         ml: { sm: '50px' }
-    //     }}
-    //     position="relative" p="20px"
-    // >
-
-    //     <Typography
-    //         color="#FF2625"
-    //         fontWeight="600"
-    //         fontSize="26px"
-    //     >
-    //         Fitness Club
-    //     </Typography>
-
-    //     <Typography
-    //         fontWeight={700}
-    //         sx={{fontSize: {lg: '44px', xs: '40px'}}
-    //         }
-    //         mb="23px" mt="30px"
-    //     >
-    //         Sweat, Smile <br/> and Repeat
-    //     </Typography>
-
-    //     <Typography
-    //         fontSize="22px"
-    //         lineHeight="35px"
-    //         mb={4}
-    //     >
-    //         Check out the most effective exercises
-    //     </Typography>
-
-    //     <Button
-    //         variant="contained"
-    //         color="error"
-    //         href="#exercises"
-    //         sx={{backgroundColor: '#ff2625', padding: '10px'}}
-    //     >Explore Exercises</Button>
-
-    //     <Typography
-    //         fontWeight={600}
-    //         color="#ff2625"
-    //         sx={{
-    //             opacity: 0.1,
-    //             display: {lg: 'block', xs: 'none'}
-    //         }}
-    //         fontSize="200px"
-    //     >Exercise</Typography>
-
-    //     <img src={HeroBannerImg} alt="banner" className="hero-banner-img" />
-    // </Box>
   );
 };
 

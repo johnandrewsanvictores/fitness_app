@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
+
+  const handleClickScroll = () => {
+    const element = document.querySelector("#exercises");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const fetchExerciseData = async () => {
@@ -19,7 +25,19 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
     //fetchExerciseData();
     //temp
-    setBodyParts(["all", "chest", "back", "legs", "shoulder"]);
+    setBodyParts([
+      "all",
+      "back",
+      "cardio",
+      "chest",
+      "lower arms",
+      "lower legs",
+      "neck",
+      "shoulders",
+      "upper arms",
+      "upper legs",
+      "waist",
+    ]);
   }, []);
 
   const handleSearch = async () => {
@@ -39,6 +57,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
       setSearch("");
       setExercises(searchedExercises);
+
+      handleClickScroll();
     }
   };
 

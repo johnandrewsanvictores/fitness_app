@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button, Stack, Typography } from "@mui/material";
 
-const ExerciseCard = ({ key, exercise }) => {
+const ExerciseCard = ({ key, exercise, isSimilar }) => {
   return (
     <Link
-      className=" w-full max-w-[400px] h-[445px] bg-white border-t-2 border-t-solid border-t-red-500 rounded-br-3xl no-underline flex
-      justify-between flex-col pb-3 scale-100 transition-all hover:scale-110"
+      className={` w-56 md:w-72 h-auto  bg-white border-t-2 border-t-solid border-t-red-500 rounded-br-3xl no-underline flex
+      justify-between flex-col scale-100 transition-all hover:scale-110`}
       to={`/exercise/${exercise.id}`}
     >
       <img
@@ -22,7 +22,7 @@ const ExerciseCard = ({ key, exercise }) => {
           {exercise.target}
         </button>
       </div>
-      <p className=" ml-5 text-gray-800 font-bold mt-3 pb-3 capitalize text-2xl">
+      <p className=" ml-5 text-gray-800 font-bold mt-3 pb-3 capitalize text-lg md:text-2xl">
         {exercise.name}
       </p>
     </Link>

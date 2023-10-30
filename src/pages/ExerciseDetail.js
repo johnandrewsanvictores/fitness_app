@@ -45,15 +45,6 @@ const ExerciseDetail = () => {
         exerciseOptions,
       );
       setEquipmentExercises(equipmentExercisesData);
-
-      //temp
-      setExerciseDetail({
-        bodyPart: "chest",
-        gifUrl: "/logo192.png",
-        name: "test",
-        target: "upper chest",
-        equipment: "dumbbell",
-      });
     };
 
     fetchExerciseData();
