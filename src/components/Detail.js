@@ -23,7 +23,10 @@ const Detail = ({ exerciseDetail }) => {
   ];
 
   return (
-    <div className="flex flex-col gap-9 p-5 items-center justify-center md:flex-row md:px-12 md:py-24 ">
+    <div
+      className="flex flex-col gap-9 px-8 py-8 md:p-8 md:pb-0 items-center justify-center md:flex-row md:px-12 md:py-24 "
+      id="detail-sec"
+    >
       <img
         src={gifUrl}
         alt={name}

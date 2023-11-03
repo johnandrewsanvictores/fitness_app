@@ -12,12 +12,12 @@ const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Typography
+    <button
       onClick={() => scrollPrev()}
       className="cursor-pointer bg-transparent outline-none border-none flex justify-center items-center text-red-500 text-2xl rounded-md static md:absolute md:-bottom-8 md:  scale-100 transition-all md:right-12 md:hover:scale-125"
     >
       <img src={LeftArrowIcon} alt="right-arrow" />
-    </Typography>
+    </button>
   );
 };
 
@@ -25,18 +25,28 @@ const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
-    <Typography
+    <button
       onClick={() => scrollNext()}
       className="cursor-pointer bg-transparent outline-none border-none flex justify-center items-center text-red-500 text-2xl rounded-md static md:absolute md:-bottom-8 md:right-1 scale-100 transition-all md:hover:scale-125"
     >
       <img src={RightArrowIcon} alt="right-arrow" />
-    </Typography>
+    </button>
   );
 };
 
-const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
+const HorizontalScrollBar = ({
+  data,
+  bodyPart,
+  setBodyPart,
+  isBodyParts,
+  isRecom,
+}) => {
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    <ScrollMenu
+      LeftArrow={LeftArrow}
+      RightArrow={RightArrow}
+      scrollContainerClassName="flex items-center"
+    >
       {data.map((item) => (
         <div
           key={item.id || item}
@@ -51,7 +61,7 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
               setBodyPart={setBodyPart}
             />
           ) : (
-            <ExerciseCard exercise={item} isSimilar={true} />
+            <ExerciseCard exercise={item} isRecom={isRecom} />
           )}
         </div>
       ))}

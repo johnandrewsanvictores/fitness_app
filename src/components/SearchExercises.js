@@ -64,11 +64,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-8 text-center justify-center items-center py-8 w-full md:pt-32 md:pb-20">
-        <h5 className=" text-gray-800 text-3xl w-full max-w-md leading-snug px-4">
+      <div className="flex flex-col gap-8 text-center justify-center items-center py-16 w-full md:pt-32 md:pb-20">
+        <h5 className=" text-gray-800 text-3xl w-full max-w-md leading-snug px-8">
           Awesome Exercise You Should know
         </h5>
-        <div className="flex w-full items-center justify-center px-6">
+        <div className="flex w-full items-center justify-center px-12">
           <input
             type="text"
             placeholder="Search Exercises"

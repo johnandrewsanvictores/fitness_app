@@ -37,7 +37,7 @@ const Navbar = () => {
             className={`md:flex md:flex-row md:gap-20 md:bg-inherit md:relative md:h-auto md:opacity-100 md:top-0 md: left-0 md:justify-end md:items-center ${
               click
                 ? "flex flex-col justify-start fixed  w-full h-screen top-20 py-8 bg-gray-950 left-0 opacity-100 z-10 transition-all items-center gap-10"
-                : "flex flex-col justify-start w-full h-screen fixed top-20 py-8 -left-full opacity-0 transition-all items-center gap-10"
+                : "flex flex-col justify-start w-0 h-screen fixed top-20 py-8 -left-full opacity-0 transition-all items-center gap-10"
             }`}
           >
             <li className="nav-item">
