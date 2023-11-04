@@ -2,7 +2,7 @@ import { Stack, Typography } from "@mui/material";
 
 import Icon from "../assets/icons/gym.png";
 
-const BodyPart = ({ item, setBodyPart, bodyPart }) => {
+const BodyPart = ({ item, setBodyPart, bodyPart, img }) => {
   return (
     <div
       class={`bodyPart-card p-4 ${
@@ -13,7 +13,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
         window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
       }}
     >
-      <img src={Icon} alt="dumbbell" class="w-10 h-10" />
+      <img src={img} alt="dumbbell" class="w-10 h-10 md:w-20 md:h-20" />
       <p class="text-xl md:text-2xl font-bold text-gray-800 capitalize text-center">
         {item}
       </p>

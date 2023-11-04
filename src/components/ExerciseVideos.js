@@ -1,7 +1,8 @@
 import { AiFillPlaySquare } from "react-icons/ai";
+import Loader from "./Loader";
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-  if (!exerciseVideos.length) return "Loading...";
+  if (!exerciseVideos.length) return <Loader />;
 
   return (
     <div className=" my-12 flex flex-col gap-8 items-center px-8 pb-8 md:p-8 md:px-12 md:py-24 md:pt-1">

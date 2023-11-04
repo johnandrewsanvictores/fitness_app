@@ -2,7 +2,22 @@ import { useState, useEffect } from "react";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 
-const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
+import Icon from "../assets/icons/gym.png";
+import Arms from "../assets/icons/arms.png";
+import Back from "../assets/icons/back.png";
+import Cardio from "../assets/icons/cardio.png";
+import Chest from "../assets/icons/chest.png";
+import Legs from "../assets/icons/legs.png";
+import Neck from "../assets/icons/neck.png";
+import Shoulders from "../assets/icons/shoulders.png";
+import Waist from "../assets/icons/waist.png";
+
+const SearchExercises = ({
+  setExercises,
+  bodyPart,
+  setBodyPart,
+  setSearchInput,
+}) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
 
@@ -40,6 +55,20 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     ]);
   }, []);
 
+  const icons_body_part = [
+    Icon,
+    Back,
+    Cardio,
+    Chest,
+    Arms,
+    Legs,
+    Neck,
+    Shoulders,
+    Arms,
+    Legs,
+    Waist,
+  ];
+
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
@@ -55,6 +84,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           exercise.bodyPart.toLowerCase().includes(search),
       );
 
+      setSearchInput(search);
       setSearch("");
       setExercises(searchedExercises);
 
@@ -90,6 +120,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
+          icons_body_part={icons_body_part}
+          setSearchInput={setSearchInput}
           isBodyParts
         />
       </div>

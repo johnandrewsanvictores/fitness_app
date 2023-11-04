@@ -4,20 +4,24 @@ import BodyPartImage from "../assets/icons/body-part.png";
 import TargetImage from "../assets/icons/target.png";
 import EquipmentImage from "../assets/icons/equipment.png";
 
+import { IoIosBody } from "react-icons/io";
+import { SiTarget } from "react-icons/si";
+import { FaDumbbell } from "react-icons/fa";
+
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
   const extraDetail = [
     {
-      icon: BodyPartImage,
+      icon: <IoIosBody size="25" color="red" />,
       name: bodyPart,
     },
     {
-      icon: TargetImage,
+      icon: <SiTarget size="25" color="red" />,
       name: target,
     },
     {
-      icon: EquipmentImage,
+      icon: <FaDumbbell size="25" color="red" />,
       name: equipment,
     },
   ];
@@ -46,13 +50,7 @@ const Detail = ({ exerciseDetail }) => {
         <div className="flex gap-8 flex-col mt-6">
           {extraDetail.map((item) => (
             <div className="flex gap-2 items-center ">
-              <button>
-                <img
-                  src={item.icon}
-                  alt={bodyPart}
-                  className=" max-w-3xl h-auto aspect-square"
-                />
-              </button>
+              <button>{item.icon}</button>
               <h5 className="text-base text-gray-900 capitalize">
                 {item.name}
               </h5>

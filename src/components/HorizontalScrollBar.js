@@ -39,6 +39,8 @@ const HorizontalScrollBar = ({
   bodyPart,
   setBodyPart,
   isBodyParts,
+  icons_body_part,
+  setSearchInput,
   isRecom,
 }) => {
   return (
@@ -47,18 +49,20 @@ const HorizontalScrollBar = ({
       RightArrow={RightArrow}
       scrollContainerClassName="flex items-center"
     >
-      {data.map((item) => (
+      {data.map((item, index) => (
         <div
           key={item.id || item}
           itemId={item.id || item}
           title={item.id || item}
           className="p-5"
+          onClick={() => setSearchInput("")}
         >
           {isBodyParts ? (
             <BodyPart
               item={item}
               bodyPart={bodyPart}
               setBodyPart={setBodyPart}
+              img={icons_body_part[index]}
             />
           ) : (
             <ExerciseCard exercise={item} isRecom={isRecom} />
