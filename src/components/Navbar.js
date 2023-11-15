@@ -14,17 +14,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-gray-900 text-white h-20 flex flex-row justify-center text-lg sticky top-0 z-50 px-8">
+      <nav className="bg-gray-900 text-white h-15 flex flex-row justify-center text-base sticky top-0 z-50 px-8">
         <div className="flex justify-between items-center h-20 w-full max-w-screen-2xl">
           <Link
             to="/"
-            className=" text-yellow-300 text-3xl flex gap-2 items-center"
+            className=" text-yellow-300 text-xl flex gap-2 items-center"
             onClick={() => {
               closeMobileMenu();
               setActive("home");
             }}
           >
-            Gym <i className="fab fa-typo3" />
+            FitGIFs <i className="fab fa-typo3" />
           </Link>
           <div className="cursor-pointer text-2xl" onClick={handleClick}>
             <i
