@@ -1,4 +1,3 @@
-import { Box, Stack, Typography } from "@mui/material";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 import Loader from "./Loader";
 
@@ -10,7 +9,7 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
           Exercises that target the{" "}
           <span className="text-red-500">same muscle group</span>
         </h3>
-        <div className="p-5 w-full max-w-7xl mx-auto bg-yellow-100 relative">
+        <div className="p-5 w-full max-w-7xl mx-auto bg-red-100 relative">
           {targetMuscleExercises.length ? (
             <HorizontalScrollBar data={targetMuscleExercises} isRecom={true} />
           ) : (
@@ -23,7 +22,7 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
           Exercises that use the{" "}
           <span className="text-red-500">same equipment</span>
         </h3>
-        <div className="p-5 mb-4 md:mb-40 w-full max-w-7xl mx-auto bg-yellow-100 relative">
+        <div className="p-5 mb-4 md:mb-40 w-full max-w-7xl mx-auto bg-red-100 relative">
           {targetMuscleExercises.length ? (
             <HorizontalScrollBar data={equipmentExercises} isRecom={true} />
           ) : (
@@ -32,19 +31,6 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
         </div>
       </div>
     </div>
-    // <Box sx={{mt: {lg: '100px', xs: '0'}}}>
-    //     <Typography variant="h3" mb={5}>Exercises that target the same muscle group</Typography>
-
-    //     <Stack direction="row" sx={{ p: '2', position: 'relative' }}>
-    //         {targetMuscleExercises.length ? <HorizontalScrollBar data={targetMuscleExercises} /> : <Loader />}
-    //     </Stack>
-
-    //     <Typography variant="h3" mb={5}>Exercises that use the same equipment</Typography>
-
-    //     <Stack direction="row" sx={{ p: '2', position: 'relative' }}>
-    //         {equipmentExercises.length ? <HorizontalScrollBar data={equipmentExercises} /> : <Loader />}
-    //     </Stack>
-    // </Box>
   );
 };
 
